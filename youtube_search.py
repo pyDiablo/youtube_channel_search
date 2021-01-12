@@ -47,12 +47,15 @@ def extract_yt_video_id_from_data(yt_api_response):
     
     return video_ids
 
-# Creating YouTube video links and adding them to a list
-video_urls = []  # List of video urls
-for id in video_ids:
-    url = f'https://youtube.com/watch?v={id}'
-    video_urls.append(url)
-
+def create_yt_links_from_ids(video_ids):
+    # Creating YouTube video links and adding them to a list
+    video_urls = []  # List of video urls
+    for id in video_ids:
+        url = f'https://youtube.com/watch?v={id}'
+        video_urls.append(url)
+    
+    return video_urls
+    
 print(video_urls)
 print()
 
