@@ -22,15 +22,19 @@ def connect_yt_api():
     
     youtube = build('youtube', 'v3', developerKey=api_key)
 
-# Search a YouTube channel for videos with {search terms here} in title
-request = youtube.search().list(
-    part='snippet',  # string, The *part* parameter specifies a comma-separated list of one or more search resource properties that the API response will include. Set the parameter value to snippet. (required)
-    channelId='CHANNEL_ID_HERE',  # string, channel's id you want to search
-    maxResults=25,  # integer, No. of results you want to be displayed
-    order='viewCount',  # Allowed values: searchSortUnspecified, date, rating, viewCount, relevance, title, videoCount
-    q='SEARCH_TERMS_HERE',  # string, Textual search terms to match
-)
-response = request.execute()
+def search_yt_channel(yt_api_client):
+    # Search a YouTube channel for videos with {search terms here} in title
+    youtube = yt_api_client
+    request = youtube.search().list(
+        part='snippet',  # string, The *part* parameter specifies a comma-separated list of one or more search resource properties that the API response will include. Set the parameter value to snippet. (required)
+        channelId='CHANNEL_ID_HERE',  # string, channel's id you want to search
+        maxResults=25,  # integer, No. of results you want to be displayed
+        order='viewCount',  # Allowed values: searchSortUnspecified, date, rating, viewCount, relevance, title, videoCount
+        q='SEARCH_TERMS_HERE',  # string, Textual search terms to match
+        )
+    response = request.execute()
+    return response
+
 
 video_data = response['items']  # Extratcing video info from json data
 video_ids = []  # List of video ids
