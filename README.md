@@ -1,4 +1,4 @@
-# Youtube Channel Search
+# YouTube Channel Search
 ---
 
 This program uses YouTube's API to search a
