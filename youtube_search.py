@@ -17,9 +17,10 @@ from googleapiclient.discovery import build
 import os
 import time
 
-api_key = os.environ['YT_API_KEY']
-
-youtube = build('youtube', 'v3', developerKey=api_key)
+def connect_yt_api():
+    api_key = os.environ['YT_API_KEY']
+    
+    youtube = build('youtube', 'v3', developerKey=api_key)
 
 # Search a YouTube channel for videos with {search terms here} in title
 request = youtube.search().list(
