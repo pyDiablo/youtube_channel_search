@@ -35,18 +35,20 @@ def search_yt_channel(yt_api_client):
     response = request.execute()
     return response
 
-
-video_data = response['items']  # Extratcing video info from json data
-video_ids = []  # List of video ids
-video_urls = []  # List of video urls
-# count = 0  count of urls currently downloading
-
-
-# Extracting video ids from json data
-for i in range(1, len(video_data)):
-    video_ids.append(video_data[i]['id']['videoId'])
+def extract_yt_video_id_from_data(yt_api_response):
+    response = yt_api_response
+    video_data = response['items']  # Extratcing video info from json data
+    video_ids = []  # List of video ids
+    # count = 0  count of urls currently downloading
+ 
+    # Extracting video ids from json data
+    for i in range(1, len(video_data)):
+        video_ids.append(video_data[i]['id']['videoId'])
+    
+    return video_ids
 
 # Creating YouTube video links and adding them to a list
+video_urls = []  # List of video urls
 for id in video_ids:
     url = f'https://youtube.com/watch?v={id}'
     video_urls.append(url)
