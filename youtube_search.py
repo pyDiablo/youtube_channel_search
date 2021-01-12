@@ -24,10 +24,10 @@ youtube = build('youtube', 'v3', developerKey=api_key)
 # Search a YouTube channel for videos with {search terms here} in title
 request = youtube.search().list(
     part='snippet',  # string, The *part* parameter specifies a comma-separated list of one or more search resource properties that the API response will include. Set the parameter value to snippet. (required)
-    channelId='UCTur7oM6mLL0rM2k0znuZpQ',  # string, channel's id you want to search
+    channelId='CHANNEL_ID_HERE',  # string, channel's id you want to search
     maxResults=25,  # integer, No. of results you want to be displayed
     order='viewCount',  # Allowed values: searchSortUnspecified, date, rating, viewCount, relevance, title, videoCount
-    q='Woh Kya Hai',  # string, Textual search terms to match
+    q='SEARCH_TERMS_HERE',  # string, Textual search terms to match
 )
 response = request.execute()
 
