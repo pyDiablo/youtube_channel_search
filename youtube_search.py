@@ -66,3 +66,11 @@ def download_yt_videos_from_list(video_urls):
         os.system(f'youtube-dl {url}')
         print('Pausing the execution for 5 mins\n')
         time.sleep(300)  # Wait for 5 mins (300 seconds)
+
+def main():
+    client = connect_yt_api()
+    api_response = search_yt_channel(client)
+    ids = extract_yt_video_id_from_data(api_response)
+    urls = create_yt_links_from_ids(ids)
+    download_yt_videos_from_list(urls)
+    print('Finished!')
