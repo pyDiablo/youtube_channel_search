@@ -55,17 +55,14 @@ def create_yt_links_from_ids(video_ids):
         video_urls.append(url)
     
     return video_urls
-    
-print(video_urls)
-print()
 
-# Dowload each video one by one using youtube-dl
-# for url in video_urls:  Alternate way of doing the following
-for i, url in enumerate(video_urls, 1):  # enumerate(iterable, start) adds an index 'i' to the iterable (e.g. lists) and returns a tuple
+def download_yt_videos_from_list(video_urls):
+    # Dowload each video one by one using youtube-dl
+    # # for url in video_urls:  Alternate way of doing the following
+    for i, url in enumerate(video_urls, 1):  # enumerate(iterable, start) adds an index 'i' to the iterable (e.g. lists) and returns a tuple
     # count = count + 1
     # print(f'Downloading {count} of {len(video_urls)}: {url}...')  Alternate way of doing the above
-    print(f'Downloading {i} of {len(video_urls)}: {url}...')
-    os.system(f'youtube-dl {url}')
-    print('Pausing the execution for 5 mins')
-    print()
-    time.sleep(300)  # Wait for 5 mins (300 seconds)
+        print(f'Downloading {i} of {len(video_urls)}: {url}...')
+        os.system(f'youtube-dl {url}')
+        print('Pausing the execution for 5 mins\n')
+        time.sleep(300)  # Wait for 5 mins (300 seconds)
