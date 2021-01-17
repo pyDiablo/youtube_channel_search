@@ -17,6 +17,7 @@ from googleapiclient.discovery import build
 import os
 import time
 
+
 API_KEY = os.environ['YT_API_KEY']
 SERVICE = 'youtube'
 SERVICE_VERSION = 'v3'
@@ -75,8 +76,11 @@ def download_yt_videos_from_list(video_urls):
         # print(f'Downloading {count} of {len(video_urls)}: {url}...')  Alternate way of doing the above
         print(f'Downloading {i} of {len(video_urls)}: {url}...')
         os.system(f'youtube-dl {url}')
-        print('Pausing the execution for 5 mins\n')
-        time.sleep(300)  # Wait for 5 mins (300 seconds)
+
+        # Pause execution only if there are multiple urls
+        if len(video_urls) > 1:
+            print('Pausing the execution for 5 mins\n')
+            time.sleep(300)  # Wait for 5 mins (300 seconds)
 
 
 def main():
