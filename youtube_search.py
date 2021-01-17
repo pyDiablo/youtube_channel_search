@@ -32,7 +32,8 @@ def search_yt_channel(yt_api_client):
     # Search a YouTube channel for videos with {search terms here} in title
     youtube = yt_api_client
     request = youtube.search().list(
-        # string, The *part* parameter specifies a comma-separated list of one or more search resource properties that the API response will include. Set the parameter value to snippet. (required)
+        # string, The *part* parameter specifies a comma-separated list of one or more search resource properties that the API response will include.
+        # Set the parameter value to snippet. (required)
         part='snippet',
         channelId='CHANNEL_ID_HERE',  # string, channel's id you want to search
         maxResults=25,  # integer, No. of results you want to be displayed
