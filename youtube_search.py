@@ -17,11 +17,14 @@ from googleapiclient.discovery import build
 import os
 import time
 
+API_KEY = os.environ['YT_API_KEY']
+SERVICE = 'youtube'
+SERVICE_VERSION = 'v3'
+
 
 def connect_yt_api():
-    api_key = os.environ['YT_API_KEY']
-
-    youtube = build('youtube', 'v3', developerKey=api_key)
+    youtube = build(SERVICE, SERVICE_VERSION, developerKey=API_KEY)
+    return youtube
 
 
 def search_yt_channel(yt_api_client):
