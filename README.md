@@ -1,5 +1,5 @@
 # YouTube Channel Search
----
+-
 
 This program uses YouTube's API to search a
 YouTube channel for a string and returns a
