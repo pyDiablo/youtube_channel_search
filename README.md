@@ -20,4 +20,4 @@ You need to have the following for this to work:
 
 	Enter the following in terminal to install:
 
-	`pip install google-api-python-client`
+	  pip install google-api-python-client
